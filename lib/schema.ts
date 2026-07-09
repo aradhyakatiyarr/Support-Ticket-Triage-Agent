@@ -37,7 +37,7 @@ export const TriageResultSchema = z.object({
   category: z.enum(CATEGORIES),
   priority: z.enum(PRIORITIES),
   priority_score: z.number().min(0).max(100),
-  escalate: z.boolean(),
+  escalate: z.preprocess((v) => (typeof v === "string" ? v === "true" : v), z.boolean()),
   urgency_reason: z.string().min(1).max(220),
   draft_response: z.string().min(1),
   confidence: z.number().min(0).max(1),
