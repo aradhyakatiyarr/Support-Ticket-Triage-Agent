@@ -67,7 +67,7 @@ const TRIAGE_PARAMETERS = {
       description: "0-100, how urgently this needs human attention",
     },
     escalate: {
-      type: "boolean",
+      type: ["boolean", "string"],
       description: "true if this should skip the queue and page a human now",
     },
     urgency_reason: {
